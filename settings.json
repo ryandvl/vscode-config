@@ -11,7 +11,7 @@
   "workbench.sideBar.location": "right",
   "workbench.colorCustomizations": {
     "[Omni]": {
-      "editorSuggestWidget.selectedBackground": "#4d3091"
+      "editorSuggestWidget.selectedBackground": "#4d3091",
     },
 
     "editorRuler.foreground": "#0003",
@@ -137,6 +137,7 @@
   "vim.hlsearch": true,
   "vim.handleKeys": {
     "<C-a>": false,
+    "<C-c>": false,
     "<C-f>": false,
     "<C-j>": false,
     "<C-v>": false,
@@ -300,7 +301,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[lua]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "[go]": {
     "editor.tabSize": 8
