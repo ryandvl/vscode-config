@@ -1,0 +1,17 @@
+{
+  "Declare Type": {
+		"prefix": "dt",
+		"body": [
+			"/** @type {$1} */"
+		],
+		"description": "Declare Type"
+	},
+
+	"Declare Type - Import": {
+		"prefix": "dti",
+		"body": [
+			"/** @type {import(\"$1\")} */"
+		],
+		"description": "Declare Type - Import"
+	}
+}
