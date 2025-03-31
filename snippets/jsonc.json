@@ -1,0 +1,12 @@
+{
+	"region": {
+		"prefix": ["region", "#region"],
+		"body": "// #region $1",
+		"description": "#region"
+	},
+	"endregion": {
+		"prefix": ["endregion", "#endregion"],
+		"body": "// #endregion",
+		"description": "#endregion"
+	}
+}
