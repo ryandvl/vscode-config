@@ -1,0 +1,83 @@
+{
+	"include": {
+		"prefix": "include",
+		"description": "include",
+		"body": [
+			"#include <$1>"
+		]
+	},
+	"include file": {
+		"prefix": "includef",
+		"description": "include file",
+		"body": [
+			"#include \"$1\""
+		]
+	},
+
+	"class cpp": {
+		"prefix": "class cpp",
+		"body": [
+			"#include ${RELATIVE_FILEPATH/(src\\\\)|(\\.cpp)|(\\\\)/${1:+\"}${2:+.hpp}${3:+/}/g}\"",
+			"",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}::${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() {}",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}::~${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() {}",
+			"",
+			"void ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}::init()",
+			"{",
+			"\t$1",
+			"}",
+			""
+		],
+		"description": "Class Base HPP"
+	},
+	"class hpp": {
+		"prefix": "class hpp",
+		"body": [
+			"#pragma once",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}",
+			"{",
+			"\tpublic:",
+			"\t\t${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() {}",
+			"\t\t~${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() {}",
+			"\tprivate:",
+			"\t\tvoid init();",
+			"};",
+			""
+		],
+		"description": "Class Base HPP"
+	},
+
+	"cpp": {
+		"prefix": "cpp",
+		"description": "Default CPP prefix",
+		"body": [
+			"#include <iostream>",
+			"",
+			"int main()",
+			"{",
+			"\t$1",
+			"",
+			"\treturn 0;",
+			"}"
+		]
+	},
+
+	"cout": {
+		"prefix": "cout",
+		"body": "std::cout << $1;"
+	},
+	"cin": {
+		"prefix": "cin",
+		"body": "std::cin >> $1;"
+	},
+	"endl": {
+		"prefix": "endl",
+		"body": "std::endl"
+	},
+
+	"string": {
+		"prefix": "string",
+		"body": "std::string"
+	}
+}
