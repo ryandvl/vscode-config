@@ -1,0 +1,30 @@
+{
+	"component": {
+		"prefix": "component",
+		"body": [
+			"export function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}() {",
+			"\treturn (",
+			"\t\t$1",
+			"\t);",
+			"}",
+			""
+		],
+		"description": "Component Function for React TypeScript"
+	},
+	"component props": {
+		"prefix": "componentprops",
+		"body": [
+			"import { ComponentProps } from \"react\";",
+			"",
+			"interface ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Props extends ComponentProps<\"$1\"> {}",
+			"",
+			"export function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}(props: ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Props) {",
+			"\treturn (",
+			"\t\t<$1 {...props} />",
+			"\t);",
+			"}",
+			""
+		],
+		"description": "Component Function with Props for React TypeScript"
+	}
+}
