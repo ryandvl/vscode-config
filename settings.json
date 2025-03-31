@@ -137,7 +137,6 @@
   "vim.hlsearch": true,
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-c>": false,
     "<C-f>": false,
     "<C-j>": false,
     "<C-v>": false,
