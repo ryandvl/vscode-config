@@ -1,0 +1,6 @@
+{
+	"_pascalcase": {
+		"prefix": "_pascalcase",
+		"body": "${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}"
+	}
+}
