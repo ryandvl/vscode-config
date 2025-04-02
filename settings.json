@@ -1,6 +1,6 @@
 {
   // #region Workbench
-  "workbench.colorTheme": "Aura Soft Dark",
+  "workbench.colorTheme": "Aura Dark",
   "workbench.iconTheme": "symbols",
   "workbench.editor.labelFormat": "short",
   "workbench.statusBar.visible": true,
@@ -394,5 +394,9 @@
   "cSpell.enabled": false,
   // #endregion
 
-  "console-ninja.featureSet": "Community"
+  "console-ninja.featureSet": "Community",
+
+  "emojisense.languages": {
+    "markdown": true
+  }
 }
