@@ -1,27 +1,30 @@
 {
   // #region Workbench
-  "workbench.colorTheme": "Omni",
+  "workbench.colorTheme": "Aura Soft Dark",
   "workbench.iconTheme": "symbols",
   "workbench.editor.labelFormat": "short",
   "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "hidden",
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
-  "workbench.editor.showTabs": "single",
   "workbench.sideBar.location": "right",
+  "workbench.editor.showTabs": "single",
   "workbench.colorCustomizations": {
     "[Omni]": {
       "editorSuggestWidget.selectedBackground": "#4d3091"
     },
+    "[Aura Dark]": {
+      "editorSuggestWidget.selectedBackground": "#3c2570"
+    },
 
-    "editorRuler.foreground": "#0003",
-    "editorCursor.background": "#ffffff",
     "editorCursor.foreground": "#4b54ff",
+    "editorCursor.background": "#ffffff",
+    "editorRuler.foreground": "#0002",
 
-    "errorLens.errorBackground": "#0000",
-    "errorLens.hintBackground": "#0000",
-    "errorLens.infoBackground": "#0000",
     "errorLens.warningBackground": "#0000",
+    "errorLens.errorBackground": "#0000",
+    "errorLens.infoBackground": "#0000",
+    "errorLens.hintBackground": "#0000",
 
     "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
     "editorOverviewRuler.selectionHighlightForeground": "#0000",
@@ -35,6 +38,7 @@
     "editorOverviewRuler.addedForeground": "#0000",
     "editorOverviewRuler.errorForeground": "#0000",
     "editorOverviewRuler.infoForeground": "#0000",
+    "editorOverviewRuler.background": "#0000",
     "editorOverviewRuler.border": "#0000"
   },
   "workbench.tree.enableStickyScroll": false,
@@ -43,6 +47,7 @@
   "workbench.editor.decorations.badges": false,
   // #endregion
 
+  "color-highlight.markRuler": false,
   "breadcrumbs.enabled": false,
 
   // #region Zen Mode
@@ -58,7 +63,7 @@
   // #region Window
   "window.menuBarVisibility": "compact",
   "window.commandCenter": false,
-  "window.customTitleBarVisibility": "never",
+  "window.customTitleBarVisibility": "auto",
   "window.titleBarStyle": "custom",
   // #endregion
 
@@ -77,14 +82,15 @@
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.overviewRulerBorder": false,
-  "editor.hideCursorInOverviewRuler": true,
   "editor.accessibilitySupport": "off",
-  "editor.minimap.enabled": false,
+  "editor.hideCursorInOverviewRuler": true,
   "editor.cursorBlinking": "solid",
   "editor.lightbulb.enabled": "off",
   "editor.showFoldingControls": "never",
   "editor.snippetSuggestions": "top",
   "editor.formatOnSave": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.minimap.enabled": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "ㅤ": true
   },
@@ -123,6 +129,7 @@
   // #region Terminal
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.external.linuxExec": "tilix",
   "terminal.integrated.env.linux": {},
   "terminal.integrated.env.windows": {},
   "terminal.integrated.env.osx": {},
@@ -147,9 +154,30 @@
   },
   "vim.normalModeKeyBindings": [
     {
+      // :
+      // Change CMD Line to Quick Pick
+      "before": [":"],
+      "commands": ["vim.showQuickpickCmdLine"],
+      "silent": true
+    },
+    {
+      // ; + ;
+      // Focus open editors view
+      "before": [";", ";"],
+      "commands": ["workbench.files.action.focusOpenEditorsView"],
+      "silent": true
+    },
+    {
       // Space + e
-      // View: Toggle Primary Side Bar Visibility
+      // Focus Files Explorer
       "before": ["<leader>", "e"],
+      "commands": ["workbench.explorer.fileView.focus"],
+      "silent": true
+    },
+    {
+      // Space + E
+      // Show/Hide Files Explorer
+      "before": ["<leader>", "<s-e>"],
       "commands": ["workbench.action.toggleSidebarVisibility"],
       "silent": true
     },
@@ -158,6 +186,11 @@
       // Go to File...
       "before": ["<leader>", "<leader>"],
       "commands": ["workbench.action.quickOpen"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["workbench.action.gotoSymbol"],
       "silent": true
     },
     {
@@ -172,20 +205,6 @@
       // List the bookmarks
       "before": ["<leader>", "b", "l"],
       "commands": ["bookmarks.list"],
-      "silent": true
-    },
-    {
-      // Shift + Tab
-      // Jump to Previous Bookmark
-      "before": ["<S-Tab>"],
-      "commands": ["bookmarks.jumpToPrevious"],
-      "silent": true
-    },
-    {
-      // Tab
-      // Jump to Next Bookmark
-      "before": ["<Tab>"],
-      "commands": ["bookmarks.jumpToNext"],
       "silent": true
     },
     {
@@ -225,6 +244,21 @@
       "after": ["d", "i", "\"", "h", "P", "l", "2", "x"]
     }
   ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // Shift + k
+      // Show Definition Preview Hover
+      // https://github.com/VSCodeVim/Vim/issues/3740#issuecomment-2655837666
+      "before": ["<S-k>"],
+      "commands": [
+        {
+          "command": "editor.action.showDefinitionPreviewHover",
+          "args": { "focus": true }
+        }
+      ],
+      "silent": true
+    }
+  ],
   // #endregion
 
   // #region Discord Rich Presence
@@ -237,6 +271,7 @@
   "discord.detailsIdling": "In Config File",
   "discord.detailsEditing": "Project: {workspace}",
   "discord.detailsDebugging": "Debugging {workspace}",
+  "discord.suppressNotifications": true,
   // #endregion
 
   // #region Symbols
@@ -279,10 +314,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
   },
   "[cpp]": {
+    "editor.formatOnSave": true,
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
@@ -294,15 +330,21 @@
     "editor.formatOnSave": true
   },
   "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[lua]": {
+    "editor.formatOnSave": true,
     "editor.tabSize": 4
   },
   "[go]": {
+    "editor.formatOnSave": true,
     "editor.tabSize": 8
   },
   // #endregion
