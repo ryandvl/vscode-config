@@ -1,0 +1,371 @@
+[
+  // #region Vim
+  // Editors
+  {
+    "key": "; ;",
+    "command": "workbench.action.showAllEditors",
+    "when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+  },
+  {
+    "key": "shift+tab",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "(editorTextFocus || !inputFocus) && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+  },
+  {
+    "key": "tab",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "(editorTextFocus || !inputFocus) && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+  },
+  // Hover
+  {
+    "key": "g g",
+    "command": "editor.action.goToTopHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "G",
+    "command": "editor.action.goToBottomHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "h",
+    "command": "editor.action.scrollLeftHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "l",
+    "command": "editor.action.scrollRightHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "editor.action.pageUpHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.pageDownHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "editor.action.hideHover",
+    "when": "editorHoverFocused && vim.active"
+  },
+  // Code
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && vim.active"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && vim.active"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "workbench.action.closeQuickOpen",
+    "when": "inQuickOpen && vim.active"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "(editorTextFocus || !inputFocus) && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+  },
+  // Files Explorer
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "(!editorTextFocus && !inputFocus)"
+  },
+  {
+    "key": "shift+r",
+    "command": "workbench.files.action.refreshFilesExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "workbench.statusBar.clearFocus",
+    "when": "filesExplorerFocus && foldersViewVisible"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "n",
+    "command": "workbench.files.action.createFileFromExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+n",
+    "command": "workbench.files.action.createFolderFromExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "workbench.files.action.createFileFromExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "workbench.files.action.createFolderFromExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "key": "\\",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  // #endregion
+
+  // #region Editors (Based on tmux panes)
+  {
+    // Vertical Split
+    "key": "ctrl+b shift+5",
+    "command": "workbench.action.newGroupRight"
+  },
+  {
+    // Horizontal Split
+    "key": "ctrl+b shift+'",
+    "command": "workbench.action.newGroupBelow"
+  },
+  {
+    // Go to next editor
+    "key": "ctrl+b o",
+    "command": "workbench.action.navigateEditorGroups"
+  },
+  {
+    // Go to last active editor
+    "key": "ctrl+b ;",
+    "command": "workbench.action.focusLastEditorGroup"
+  },
+  {
+    // Move editor to left
+    "key": "ctrl+b shift+[",
+    "command": "workbench.action.moveActiveEditorGroupLeft"
+  },
+  {
+    // Move editor to right
+    "key": "ctrl+b shift+]",
+    "command": "workbench.action.moveActiveEditorGroupRight"
+  },
+  {
+    // Convert editor to window
+    "key": "ctrl+b shift+1",
+    "command": "workbench.action.moveEditorGroupToNewWindow"
+  },
+  {
+    // Close editor
+    "key": "ctrl+b x",
+    "command": "workbench.action.closeActiveEditor"
+  },
+
+  // Move to Editor
+  // Up
+  {
+    "key": "ctrl+b up",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  {
+    "key": "ctrl+b w",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  {
+    "key": "ctrl+b k",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  // Down
+  {
+    "key": "ctrl+b down",
+    "command": "workbench.action.focusBelowGroup"
+  },
+  {
+    "key": "ctrl+b s",
+    "command": "workbench.action.focusBelowGroup"
+  },
+  {
+    "key": "ctrl+b j",
+    "command": "workbench.action.focusBelowGroup"
+  },
+  // Left
+  {
+    "key": "ctrl+b left",
+    "command": "workbench.action.focusLeftGroup"
+  },
+  {
+    "key": "ctrl+b a",
+    "command": "workbench.action.focusLeftGroup"
+  },
+  {
+    "key": "ctrl+b h",
+    "command": "workbench.action.focusLeftGroup"
+  },
+  // Right
+  {
+    "key": "ctrl+b right",
+    "command": "workbench.action.focusRightGroup"
+  },
+  {
+    "key": "ctrl+b d",
+    "command": "workbench.action.focusRightGroup"
+  },
+  {
+    "key": "ctrl+b l",
+    "command": "workbench.action.focusRightGroup"
+  },
+  // #endregion
+
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quit"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+k ctrl+c",
+    "command": "-editor.action.addCommentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+k ctrl+u",
+    "command": "-editor.action.removeCommentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "-editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal",
+    "when": "editorTextFocus && !findInputFocussed && !isCompositeNotebook && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execInREPL",
+    "when": "config.python.REPL.sendToNativeREPL && editorTextFocus && !isCompositeNotebook && !jupyter.ownsSelection && !notebookEditorFocused && editorLangId == 'python'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.files.action.createFileFromExplorer",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.files.action.createFolderFromExplorer",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+k a",
+    "command": "cSpell.toggleEnableSpellChecker"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+    "when": "inQuickOpen && inViewsPicker"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenNavigatePreviousInViewPicker",
+    "when": "inQuickOpen && inViewsPicker"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "quickInput.previous",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "quickInput.next",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "-code-runner.runCustomCommand"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "quickInput.previous",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "quickInput.next",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "quickInput.next",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "quickInput.previous",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "editor.action.clipboardCopyAction"
+  },
+  {
+    "key": "ctrl+k e",
+    "command": "-workbench.files.action.focusOpenEditorsView",
+    "when": "workbench.explorer.openEditorsView.active"
+  }
+]
