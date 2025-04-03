@@ -61,6 +61,7 @@
   // #endregion
 
   // #region Window
+  "window.restoreFullscreen": true,
   "window.menuBarVisibility": "compact",
   "window.commandCenter": false,
   "window.customTitleBarVisibility": "auto",
@@ -137,6 +138,7 @@
 
   // #region Vim
   "vim.leader": "<space>",
+  "vim.timeout": 3000,
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -146,7 +148,6 @@
     "<C-a>": false,
     "<C-f>": false,
     "<C-j>": false,
-    "<C-v>": false,
     "<C-w>": false
   },
   "extensions.experimental.affinity": {
@@ -158,13 +159,6 @@
       // Change CMD Line to Quick Pick
       "before": [":"],
       "commands": ["vim.showQuickpickCmdLine"],
-      "silent": true
-    },
-    {
-      // ; + ;
-      // Focus open editors view
-      "before": [";", ";"],
-      "commands": ["workbench.files.action.focusOpenEditorsView"],
       "silent": true
     },
     {
@@ -186,6 +180,13 @@
       // Go to File...
       "before": ["<leader>", "<leader>"],
       "commands": ["workbench.action.quickOpen"],
+      "silent": true
+    },
+    {
+      // ; + ;
+      // Show all opened editors
+      "before": [";", ";"],
+      "commands": ["workbench.action.showAllEditors"],
       "silent": true
     },
     {
@@ -220,28 +221,64 @@
       "after": ["<C-x>"]
     },
     {
-      // Space + r + '
-      // Quote a word with single quotes
-      "before": ["<leader>", "r", "'"],
-      "after": ["c", "i", "w", "'", "'", "<Esc>", "P"]
+      // ; + '
+      // Surround a word with single quotes
+      "before": [";", "'"],
+      "after": ["y", "s", "i", "w", "'", "E"]
     },
     {
-      // Space + r + "
-      // Quote a word with double quotes
-      "before": ["<leader>", "r", "\""],
-      "after": ["c", "i", "w", "\"", "\"", "<Esc>", "P"]
+      // ; + "
+      // Surround a word with double quotes
+      "before": [";", "\""],
+      "after": ["y", "s", "i", "w", "\""]
     },
     {
-      // Space + R + '
+      // ; + r + '
       // Remove single quotes from a word
-      "before": ["<leader>", "R", "'"],
-      "after": ["d", "i", "'", "h", "P", "l", "2", "x"]
+      "before": [";", "r", "'"],
+      "after": ["d", "s", "'"]
     },
     {
-      // Space + R + "
+      // ; + r + "
       // Remove double quotes from a word
-      "before": ["<leader>", "R", "\""],
-      "after": ["d", "i", "\"", "h", "P", "l", "2", "x"]
+      "before": [";", "r", "\""],
+      "after": ["d", "s", "\""]
+    },
+    {
+      // ; + ]
+      // Surround a word with brackets
+      "before": [";", "]"],
+      "after": ["y", "s", "i", "w", "]"]
+    },
+    {
+      // ; + r + ]
+      // Remove brackets from a word
+      "before": [";", "r", "]"],
+      "after": ["d", "s", "]"]
+    },
+    {
+      // ; + }
+      // Surround a word with braces
+      "before": [";", "}"],
+      "after": ["y", "s", "i", "w", "}"]
+    },
+    {
+      // ; + r + }
+      // Remove braces from a word
+      "before": [";", "r", "}"],
+      "after": ["d", "s", "}"]
+    },
+    {
+      // ; + )
+      // Surround a word with parenthesis
+      "before": [";", ")"],
+      "after": ["y", "s", "i", "w", ")"]
+    },
+    {
+      // ; + r + )
+      // Remove parenthesis from a word
+      "before": [";", "r", ")"],
+      "after": ["d", "s", ")"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -257,6 +294,80 @@
         }
       ],
       "silent": true
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      // Space + *
+      // Bold a text
+      "before": ["<leader>", "*"],
+      "after": []
+    },
+    {
+      // ; + '
+      // Surround selection with single quotes
+      "before": [";", "'"],
+      "after": ["S", "'"]
+    },
+    {
+      // ; + "
+      // Surround selection with double quotes
+      "before": [";", "\""],
+      "after": ["S", "\""]
+    },
+    {
+      // ; + r + '
+      // Remove single quotes from selection
+      "before": [";", "r", "'"],
+      "after": ["d", "s", "'"]
+    },
+    {
+      // ; + r + "
+      // Remove double quotes from selection
+      "before": [";", "r", "\""],
+      "after": ["d", "s", "\""]
+    },
+    {
+      // ; + ]
+      // Surround selection with brackets
+      "before": [";", "]"],
+      "after": ["S", "]"]
+    },
+    {
+      // ; + r + ]
+      // Remove brackets from selection
+      "before": [";", "r", "]"],
+      "after": ["d", "s", "]"]
+    },
+    {
+      // ; + }
+      // Surround selection with braces
+      "before": [";", "}"],
+      "after": ["S", "}"]
+    },
+    {
+      // ; + r + }
+      // Remove braces from selection
+      "before": [";", "r", "}"],
+      "after": ["d", "s", "}"]
+    },
+    {
+      // ; + )
+      // Surround selection with parenthesis
+      "before": [";", ")"],
+      "after": ["S", ")"]
+    },
+    {
+      // ; + r + )
+      // Remove parenthesis from selection
+      "before": [";", "r", ")"],
+      "after": ["d", "s", ")"]
+    },
+    {
+      // ; + *
+      // Bold selection
+      "before": [";", "*"],
+      "after": [":", "s"]
     }
   ],
   // #endregion
@@ -370,6 +481,7 @@
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "git.autofetch": true,
+  "scm.diffDecorations": "none",
   // #endregion
 
   // #region Web Development
@@ -379,7 +491,7 @@
   "typescript.preferences.preferTypeOnlyAutoImports": true,
 
   "tailwindCSS.experimental.classRegex": [
-    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["[\"'`][^\"'`]*.*?[\"'`]", "[\"'`][^\"'`]*.*?[\"'`]"]
   ],
   // #endregion
 
