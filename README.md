@@ -24,34 +24,70 @@
 
 ## 📋 Requirements
 
-I am always using the most updated version of Visual Studio Code (Not required, but recommended to avoid errors)
+I am always using the most updated version of Visual Studio Code (Not required, but recommended to avoid bugs)
 - You can download at: **[Visual Studio Code](https://code.visualstudio.com/)**.
-
-> [!WARNING]
-> Tested on **[Linux Mint Cinnamon Edition (22.1 "Xia")](https://linuxmint.com/edition.php?id=319)** only for my personal use.
->
-> Make sure you know what you're doing.
 
 ---
 
 ## ❓ How to use
 
 > [!WARNING]
-> Please make sure to do a backup before, this is the last warning.
+> Tested on **[Linux Mint](https://linuxmint.com/edition.php?id=319)** only for my personal use.
+>
+> Make sure you know what you're doing, make a backup before.
 
-Soon...
+<br/>
+
+There are two options, you can open **Show All Commands** with `Ctrl + Shift + P` (Or `Cmd + Shift + P` on MacOS) and select:
+- **Preferences: Open User Settings (JSON)**;
+  - Clear all and paste the [`settings.json`](settings.json).
+- **Preferences: Open Keyboard Shortcuts (JSON)**;
+  - Clear all and paste the [`keybindings.json`](keybindings.json).
+- **Snippets: Configure Snippets**;
+  - Select the file extension and search in the folder [`snippets`](snippets).
+  - [`utils.code-snippets`](utils.code-snippets) is a **Global Snippets File**.
+
+<br/>
+
+Or change files based on your **Operational System**:
+<details>
+<summary><strong>Windows</strong> (Click to expand)</summary>
+<br/>
+
+- VScode default configurations folder: `%APPDATA%\Code\User\`;
+  - Example: `%APPDATA%\Code\User\settings.json`
+- Settings file: `<folder>\settings.json`;
+- Keybindings file: `<folder>\keybindings.json`;
+- Snippets folder: `<folder>\snippets`
+
+</details>
+
 <br/>
 
 <details>
 <summary><strong>Linux</strong> (Click to expand)</summary>
-</details>
 <br/>
-<details>
-<summary><strong>Windows</strong> (Click to expand)</summary>
+
+- VScode default configurations folder: `~/.config/Code/User/` or `$HOME/.config/Code/User/`;
+  - Example: `~/.config/Code/User/settings.json`
+- Settings file: `<folder>/settings.json`;
+- Keybindings file: `<folder>/keybindings.json`;
+- Snippets folder: `<folder>/snippets`
+
 </details>
+
 <br/>
+
 <details>
 <summary><strong>MacOS</strong> (Click to expand)</summary>
+<br/>
+
+- VScode default configurations folder: `$HOME/Library/Application Support/Code/User/`;
+  - Example: `$HOME/Library/Application Support/Code/User/settings.json`
+- Settings file: `<folder>/settings.json`;
+- Keybindings file: `<folder>/keybindings.json`;
+- Snippets folder: `<folder>/snippets`
+
 </details>
 
 ---
