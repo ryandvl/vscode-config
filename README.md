@@ -2,12 +2,14 @@
 
 <p align="center">
   <br/>
-  ✨ My Visual Studio Code configurations for <strong>Web</strong>/<strong>API</strong> and <strong>Game Development</strong> ✨
+  ✨ My compact VSCode configurations for <strong>Web</strong>/<strong>API</strong> and <strong>Game Development</strong> ✨
   <br/>
   <code>TypeScript</code>, <code>Python</code>, <code>Lua</code>, <code>Go</code> and <code>C++</code>;
   <br/>
   💜 Free to use, see <a href="#-how-to-use">How to use</a>. 💜
 </p>
+
+<img alt="visual studio code image" align="center" src="./.github/assets/vscode-md-auradark.png">
 
 ---
 
@@ -19,13 +21,14 @@
   - [Coding](#️-coding)
   - [Themes](#-themes)
   - [Utils](#-utils)
+- [Author](#-author)
 - [License](#-license)
 
 ---
 
 ## 📋 Requirements
 
-I am always using the most updated version of Visual Studio Code (Not required, but recommended to avoid bugs)
+I am always using the most updated version of **Visual Studio Code** (Not required, but recommended to avoid bugs)
 - You can download at: **[Visual Studio Code](https://code.visualstudio.com/)**.
 
 ---
@@ -154,6 +157,14 @@ Or change files based on your **Operational System**:
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Adds Mermaid diagram and flowchart support to markdown preview.
 - [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens) - Shows the latest version for each package using code lens.
 - [Discord Presence](https://marketplace.visualstudio.com/items?itemName=icrawl.discord-vscode) - Discord Rich Presence.
+
+---
+
+## 🧑‍💻 Author
+
+| [![ryandvl's avatar](https://github.com/ryandvl.png?size=128)](https://github.com/ryandvl) |
+| :---: |
+| **[ryandvl](https://github.com/ryandvl)** |
 
 ---
 
