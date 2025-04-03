@@ -17,6 +17,8 @@
 - [Recommended Extensions](#-recommended-extensions)
   - [Coding](#️-coding)
   - [Themes](#-themes)
+  - [Utils](#-utils)
+- [License](#-license)
 
 ---
 
@@ -115,3 +117,9 @@ Soon...
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Adds Mermaid diagram and flowchart support to markdown preview.
 - [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens) - Shows the latest version for each package using code lens.
 - [Discord Presence](https://marketplace.visualstudio.com/items?itemName=icrawl.discord-vscode) - Discord Rich Presence.
+
+---
+
+## 📝 License
+
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
