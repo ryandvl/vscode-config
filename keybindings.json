@@ -4,7 +4,7 @@
   {
     "key": "; ;",
     "command": "workbench.action.showAllEditors",
-    "when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+    "when": "(!editorTextFocus && !inputFocus)"
   },
   {
     "key": "shift+tab",
@@ -95,8 +95,25 @@
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
   {
+    "key": "escape",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.statusBar.clearFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    "when": "filesExplorerFocus && foldersViewVisible"
+  },
+  {
     "key": "ctrl+c",
-    "command": "workbench.statusBar.clearFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.statusBar.clearFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
     "when": "filesExplorerFocus && foldersViewVisible"
   },
   {
