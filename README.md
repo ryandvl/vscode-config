@@ -12,6 +12,7 @@
 ---
 
 ## 📑 Table of Contents
+
 - [Requirements](#-requirements)
 - [How to use](#-how-to-use)
 - [Recommended Extensions](#-recommended-extensions)
