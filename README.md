@@ -156,7 +156,11 @@ Or change files based on your **Operational System**:
 - [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Adds [\^footnote] syntax support to markdown preview.
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Adds Mermaid diagram and flowchart support to markdown preview.
 - [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens) - Shows the latest version for each package using code lens.
-- [Discord Presence](https://marketplace.visualstudio.com/items?itemName=icrawl.discord-vscode) - Discord Rich Presence.
+- [Discord Presence](https://marketplace.visualstudio.com/items?itemName=icrawl.discord-vscode) - Discord Rich Presence (be careful to not show private projects).
+- [Project Manager](https://marketplace.visualstudio.com/items/?itemName=alefragnani.project-manager) - Separate projects.
+- [Shader languages support for VS Code](https://marketplace.visualstudio.com/items/?itemName=slevesque.shader) - Highlight to shader languages.
+- [Sort JSON objects](https://marketplace.visualstudio.com/items/?itemName=richie5um2.vscode-sort-json) - Sort JSON.
+- [Template String Converter](https://marketplace.visualstudio.com/items/?itemName=meganrogge.template-string-converter) - Converts \"\<variable\>\" to \`\<variable\>\` in JavaScript.
 
 ---
 
