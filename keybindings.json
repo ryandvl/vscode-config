@@ -229,6 +229,11 @@
     "key": "ctrl+b k",
     "command": "workbench.action.focusAboveGroup"
   },
+  {
+    "key": "space w",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "(!editorTextFocus && !inputFocus)"
+  },
   // Down
   {
     "key": "ctrl+b down",
@@ -241,6 +246,11 @@
   {
     "key": "ctrl+b j",
     "command": "workbench.action.focusBelowGroup"
+  },
+  {
+    "key": "space s",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "(!editorTextFocus && !inputFocus)"
   },
   // Left
   {
@@ -255,6 +265,11 @@
     "key": "ctrl+b h",
     "command": "workbench.action.focusLeftGroup"
   },
+  {
+    "key": "space a",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "(!editorTextFocus && !inputFocus)"
+  },
   // Right
   {
     "key": "ctrl+b right",
@@ -267,6 +282,11 @@
   {
     "key": "ctrl+b l",
     "command": "workbench.action.focusRightGroup"
+  },
+  {
+    "key": "space d",
+    "command": "workbench.action.focusRightGroup",
+    "when": "(!editorTextFocus && !inputFocus)"
   },
   // #endregion
 
@@ -384,5 +404,27 @@
     "key": "ctrl+k e",
     "command": "-workbench.files.action.focusOpenEditorsView",
     "when": "workbench.explorer.openEditorsView.active"
+  },
+  {
+    "key": "f7",
+    "command": "-cmake.build",
+    "when": "cmake:enableFullFeatureSet && !cmake:hideBuildCommand"
+  },
+  {
+    "key": "shift+f7",
+    "command": "cmake.cleanRebuild"
+  },
+  {
+    "key": "shift+f7",
+    "command": "-cmake.buildWithTarget",
+    "when": "cmake:enableFullFeatureSet && !cmake:hideBuildCommand"
+  },
+  {
+    "key": "f7",
+    "command": "cmake.build"
+  },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "-workbench.action.openGlobalKeybindings"
   }
 ]

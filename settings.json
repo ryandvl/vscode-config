@@ -1,6 +1,6 @@
 {
   // #region Workbench
-  "workbench.colorTheme": "Aura Dark",
+  "workbench.colorTheme": "Aura Soft Dark",
   "workbench.iconTheme": "symbols",
   "workbench.editor.labelFormat": "short",
   "workbench.statusBar.visible": true,
@@ -9,6 +9,7 @@
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
   "workbench.editor.showTabs": "single",
+  "workbench.editor.tabActionCloseVisibility": false,
   "workbench.colorCustomizations": {
     "[Omni]": {
       "editorSuggestWidget.selectedBackground": "#4d3091"
@@ -43,7 +44,7 @@
   },
   "workbench.tree.enableStickyScroll": false,
   "workbench.tree.renderIndentGuides": "none",
-  "workbench.tree.indent": 16,
+  "workbench.tree.indent": 8,
   "workbench.editor.decorations.badges": false,
   // #endregion
 
@@ -77,6 +78,8 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.tabCompletion": "on",
+  "editor.linkedEditing": true,
+  "editor.suggest.insertMode": "replace",
   "editor.renderLineHighlight": "gutter",
   "editor.fontLigatures": true,
   "editor.semanticHighlighting.enabled": false,
@@ -88,14 +91,17 @@
   "editor.cursorBlinking": "solid",
   "editor.lightbulb.enabled": "off",
   "editor.showFoldingControls": "never",
-  "editor.snippetSuggestions": "top",
+  "editor.snippetSuggestions": "bottom",
   "editor.formatOnSave": false,
   "editor.stickyScroll.enabled": false,
   "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 5,
   "editor.unicodeHighlight.allowedCharacters": {
     "ㅤ": true
   },
   "editor.codeActionsOnSave": {
+    "source.addMissingImports": "always",
+    "source.organizeImports": "always",
     "source.fixAll.eslint": "explicit"
   },
   "editor.tokenColorCustomizations": {
@@ -130,6 +136,7 @@
   // #region Terminal
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.fontWeight": "600",
   "terminal.external.linuxExec": "tilix",
   "terminal.integrated.env.linux": {},
   "terminal.integrated.env.windows": {},
@@ -144,8 +151,8 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.foldfix": true,
   "vim.handleKeys": {
-    "<C-a>": false,
     "<C-f>": false,
     "<C-j>": false,
     "<C-w>": false
@@ -153,12 +160,88 @@
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(150, 50, 255, 0.5)",
+  "vim.highlightedyank.textColor": "white",
   "vim.normalModeKeyBindings": [
     {
-      // :
-      // Change CMD Line to Quick Pick
-      "before": [":"],
-      "commands": ["vim.showQuickpickCmdLine"],
+      "before": [";", "t"],
+      "commands": ["turboConsoleLog.displayLogMessage"]
+    },
+    {
+      // Shift + k
+      // Show Definition Preview Hover
+      // https://github.com/VSCodeVim/Vim/issues/3740#issuecomment-2655837666
+      "before": ["<S-k>"],
+      "commands": [
+        {
+          "command": "editor.action.showDefinitionPreviewHover",
+          "args": { "focus": true }
+        }
+      ],
+      "silent": true
+    },
+    {
+      // Space + t + a
+      // Turbo Console Log: Display Turbo Log Message
+      "before": ["<leader>", "t", "a"],
+      "commands": ["turboConsoleLog.displayLogMessage"],
+      "silent": true
+    },
+    {
+      // Space + t + d
+      // Turbo Console Log: Delete Turbo Log Messages
+      "before": ["<leader>", "t", "d"],
+      "commands": ["turboConsoleLog.deleteAllLogMessages"],
+      "silent": true
+    },
+    {
+      // Space + t + c
+      // Turbo Console Log: Comment Turbo Log Messages
+      "before": ["<leader>", "t", "c"],
+      "commands": ["turboConsoleLog.commentAllLogMessages"],
+      "silent": true
+    },
+    {
+      // Space + w
+      // Focus Above Group
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.focusAboveGroup"],
+      "silent": true
+    },
+    {
+      // Space + a
+      // Focus Left Group
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.focusLeftGroup"],
+      "silent": true
+    },
+    {
+      // Space + s
+      // Focus Below Group
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.focusBelowGroup"],
+      "silent": true
+    },
+    {
+      // Space + d
+      // Focus Right Group
+      "before": ["<leader>", "d"],
+      "commands": ["workbench.action.focusRightGroup"],
+      "silent": true
+    },
+    {
+      // Space + "
+      // Horizontal Split
+      "before": ["<leader>", "\""],
+      "commands": ["workbench.action.newGroupBelow"],
+      "silent": true
+    },
+    {
+      // Space + %
+      // Vertical Split
+      "before": ["<leader>", "%"],
+      "commands": ["workbench.action.newGroupRight"],
       "silent": true
     },
     {
@@ -207,6 +290,12 @@
       "before": ["<leader>", "b", "l"],
       "commands": ["bookmarks.list"],
       "silent": true
+    },
+    {
+      // Ctrl + a
+      // Select all
+      "before": ["<c-a>"],
+      "after": ["g", "g", "<s-v>", "<s-g>"]
     },
     {
       // +
@@ -281,22 +370,7 @@
       "after": ["d", "s", ")"]
     }
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      // Shift + k
-      // Show Definition Preview Hover
-      // https://github.com/VSCodeVim/Vim/issues/3740#issuecomment-2655837666
-      "before": ["<S-k>"],
-      "commands": [
-        {
-          "command": "editor.action.showDefinitionPreviewHover",
-          "args": { "focus": true }
-        }
-      ],
-      "silent": true
-    }
-  ],
-  "vim.visualModeKeyBindings": [
+  "vim.visualModeKeyBindingsNonRecursive": [
     {
       // Space + *
       // Bold a text
@@ -386,7 +460,6 @@
   // #endregion
 
   // #region Symbols
-  "symbols.hidesExplorerArrows": true,
   "symbols.files.associations": {
     "*.module.ts": "nest",
     "*.guard.ts": "typescript",
@@ -395,7 +468,9 @@
     "vitest.config.e2e.ts": "vitest",
     "vitest.config.e2e.mts": "vitest",
     ".env-example": "gear",
-    ".env.example": "gear"
+    ".env.example": "gear",
+    "*.fs": "text",
+    "*.vs": "text"
   },
   // #endregion
 
@@ -438,6 +513,7 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
     "editor.formatOnSave": true
   },
   "[jsonc]": {
@@ -467,6 +543,10 @@
   "files.autoSave": "off",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.fs": "glsl",
+    "*.vs": "glsl"
+  },
   // #endregion
 
   "emmet.includeLanguages": {
@@ -501,6 +581,7 @@
     "workbench.action.tasks.runTask"
   ],
   "cmake.configureOnOpen": false,
+  "cmake.showConfigureWithDebuggerNotification": false,
 
   "cSpell.userWords": ["ryandvl"],
   "cSpell.enabled": false,
@@ -510,5 +591,23 @@
 
   "emojisense.languages": {
     "markdown": true
-  }
+  },
+
+  // #region Project Manager
+  "projectManager.git.baseFolders": ["$home/dev"],
+  "projectManager.sortList": "Recent",
+  // #endregion
+
+  // #region Sort JSON
+  "sortJSON.orderOverride": [
+    "name",
+    "description",
+    "version",
+    "author",
+    "repository",
+    "main",
+    "scripts"
+  ],
+  "sortJSON.orderUnderride": ["dependencies", "devDependencies"]
+  // #endregion
 }
